@@ -21,7 +21,7 @@ namespace App
                 // Get Page Content
                 var page = await browser.NewPageAsync();
                 await page.GoToAsync(url);
-                // Wait until no more resources are loaded
+                // Wait until DOM is loaded then wait for more 3 seconds
                 await page.WaitForTimeoutAsync(3000);
                 // Get All Elements
                 var content = await page.GetContentAsync();
@@ -50,33 +50,32 @@ namespace App
                 Timeout = 0,
                 Args = new []
                 {
+                    "--no-sandbox",
+                    "--disable-setuid-sandbox",
+                    "--disable-dev-shm-usage",
                     "--disable-web-security",
-                    "--disable-background-networking",
+                    "--disable-extensions",
+                    // "--disable-background-networking",
                     "--disable-background-timer-throttling",
                     "--disable-backgrounding-occluded-windows",
+                    "--disable-sync",
+                    "--disable-translate",
+                    "--metrics-recording-only",
+                    "--safebrowsing-disable-auto-update",
                     "--disable-breakpad",
                     "--disable-client-side-phishing-detection",
                     "--disable-default-apps",
-                    "--disable-dev-shm-usage",
-                    "--disable-extensions",
                     "--disable-features=site-per-process",
                     "--disable-hang-monitor",
                     "--disable-ipc-flooding-protection",
                     "--disable-popup-blocking",
                     "--disable-prompt-on-repost",
                     "--disable-renderer-backgrounding",
-                    "--disable-sync",
-                    "--disable-translate",
-                    "--metrics-recording-only",
-                    "--safebrowsing-disable-auto-update",
                     "--mute-audio",
                     "--disable-gpu",
-                    "--disk-cache-dir=\"C:\\ProgramData\\PuppeteerService\\Cache\"",
                     "--enable-accelerated-mjpeg-decode",
                     "--enable-accelerated-video",
                     "--enable-gpu-rasterization",
-                    "--no-sandbox",
-                    "--disable-setuid-sandbox",
                     "--enable-native-gpu-memory-buffers",
                     "--ignore-gpu-blacklist"
                 }
