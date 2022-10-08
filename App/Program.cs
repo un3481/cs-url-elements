@@ -43,11 +43,11 @@ namespace App
             {
                 ExecutablePath = "/usr/bin/chromium-browser",
                 Headless = false,
-                Timeout = 0,
                 LogProcess = false,
                 Devtools = false,
                 IgnoreHTTPSErrors = true,
                 DumpIO = false,
+                Timeout = 0,
                 Args = new []
                 {
                     "--disable-web-security",
