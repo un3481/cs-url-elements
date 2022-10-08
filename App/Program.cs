@@ -41,7 +41,7 @@ namespace App
         {
             return new LaunchOptions
             {
-                ExecutablePath = "/usr/bin/chromium-browser",
+                // ExecutablePath = "/usr/bin/chromium-browser",
                 Headless = false,
                 LogProcess = false,
                 Devtools = false,
@@ -50,6 +50,7 @@ namespace App
                 Timeout = 0,
                 Args = new []
                 {
+                    "--headless",
                     "--no-sandbox",
                     "--disable-setuid-sandbox",
                     "--disable-dev-shm-usage",
